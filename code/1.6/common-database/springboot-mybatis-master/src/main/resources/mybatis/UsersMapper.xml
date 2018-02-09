@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.no7player.mapper.UsersMapper">
+
+  <resultMap id="userInfoMap" type="cn.no7player.model.UsersInfo" >
+    <id property="id" column="id" />
+    <result property="name" column="name" />
+    <result property="comId" column="comId" />
+    <result property="sex" column="sex" />
+    <result property="compName" column="compName" />
+  </resultMap>
+
+  <select id="addUsers" parameterType="cn.no7player.model.Users">
+    insert into
+      users
+      (name,comId,sex)
+    values
+      (#{name},#{comId},#{sex})
+  </select>
+
+  <select id="queryUsersInfo"  parameterType="cn.no7player.model.Users" resultMap="userInfoMap">
+    select
+      u.id as id,
+      u.name as name,
+      u.sex as sex,
+      c.name as compName
+    from
+      users u
+    left join
+      company c
+    on
+      u.comId = c.id
+    WHERE
+      1=1
+    AND
+      u.id = #{id}
+    and
+      c.id = #{comId}
+  </select>
+  
+  <select id="updateUsers" parameterType="cn.no7player.model.Users">
+    update
+      users
+    SET
+      name = #{name}
+    WHERE
+      id = #{id}
+    AND
+      comId = #{comId}
+  </select>
+
+  <select id="deleteUsers" parameterType="cn.no7player.model.Users">
+    DELETE
+      users
+    WHERE
+      id = #{id}
+    AND
+      comId = #{comId}
+  </select>
+ 
+</mapper>
