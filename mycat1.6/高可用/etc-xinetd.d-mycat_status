@@ -1,0 +1,23 @@
+service mycat_status
+
+{
+
+flags = REUSE
+
+## 使用该标记的socket_type为stream，需要设置wait为no
+
+socket_type = stream ## 封包处理方式，Stream为TCP数据包
+
+port = 48700 ## 服务监听端口
+
+wait = no ## 表示不需等待，即服务将以多线程的方式运行
+
+user = root ## 执行此服务进程的用户
+
+server =/usr/local/bin/mycat_status ## 需要启动的服务脚本
+
+log_on_failure += USERID ## 登录失败记录的内容
+
+disable = no ## 要启动服务，将此参数设置为no
+
+}
