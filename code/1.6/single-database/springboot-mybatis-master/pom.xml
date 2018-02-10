@@ -125,6 +125,11 @@
         </dependency>
         <!-- commons apache end -->
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.25</version>
+        </dependency>
     </dependencies>
 
 

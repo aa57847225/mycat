@@ -4,6 +4,9 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.beans.factory.annotation.Autowired;
 //import persistent.prestige.modules.edu.service.UserSchemeService;
 
+/**
+ * 废弃的类
+ */
 public class TenantControlInteceper implements MethodInterceptor {
 //	@Autowired
 //	private UserSchemeService userScemeService;

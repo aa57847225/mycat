@@ -1,4 +1,9 @@
 package cn.no7player.common.tenant;
+
+
+/**
+ * 存储租户信息 判断是操作哪个DB
+ */
 public class TenantContextHolder {
 	
 	private static ThreadLocal<String> tenanThreadLocal = new ThreadLocal<String>();
