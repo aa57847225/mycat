@@ -1,9 +1,7 @@
 package cn.no7player.service;
 
 import cn.no7player.mapper.CompanyMapper;
-import cn.no7player.mapper.UsersMapper;
 import cn.no7player.model.Company;
-import cn.no7player.model.Users;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,12 +20,20 @@ public class CompanyService {
     @Autowired
     private CompanyMapper companyMapper;
 
-    // 查询公司信息
+    /**
+     * 查询公司信息
+     * @param id
+     * @return
+     */
     public Company findCompanyById(int id){
         return companyMapper.findCompanyById(id);
     }
 
-    // 添加公司
+    /**
+     * 添加公司
+     * @param company
+     * @return
+     */
     public boolean addCompany(Company company){
         boolean isAdd = false;
         try {
@@ -39,7 +45,11 @@ public class CompanyService {
         return isAdd;
     }
 
-    //修改公司信息
+    /**
+     * 修改公司信息
+     * @param company
+     * @return
+     */
     public boolean updateCompany(Company company){
         boolean isUpdate = false;
         try {
@@ -54,7 +64,10 @@ public class CompanyService {
     //删除公司
 
 
-    //查询所有公司信息
+    /**
+     * 查询所有公司信息
+     * @return
+     */
     public List<Company> findAllCompany(){
         return companyMapper.findAllCompany();
     }

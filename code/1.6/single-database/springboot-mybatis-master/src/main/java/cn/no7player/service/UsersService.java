@@ -21,11 +21,21 @@ public class UsersService {
     @Autowired
     private UsersMapper usersMapper;
 
+    /**
+     * 查询用户基本信息
+     * @param id
+     * @return
+     */
     public Users getUserInfo(int id){
         Users user=usersMapper.findUser(id);
         return user;
     }
 
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
     public boolean addUser(Users user){
         boolean isAdd = false;
         try {
@@ -37,6 +47,11 @@ public class UsersService {
         return isAdd;
     }
 
+    /**
+     * 修改用户
+     * @param user
+     * @return
+     */
     public boolean updateUser(Users user){
         boolean isUpdate = false;
         try {
@@ -48,12 +63,20 @@ public class UsersService {
         return isUpdate;
     }
 
+    /**
+     * 查询所有用户信息
+     * @return
+     */
     public List<Users> findAll(){
         List<Users> usersList=usersMapper.findAll();
         return usersList;
     }
 
-    //根据用户id查询用户详情
+    /**
+     * 根据用户id查询用户详情
+     * @param id
+     * @return
+     */
     public UsersDetail findUserDetail(int id){
         return usersMapper.findUserDetail(id);
     }

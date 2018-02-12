@@ -37,6 +37,10 @@ public class UsersInfoController {
     }
 
 
+    /**
+     * 测试事务
+     * @return
+     */
     @RequestMapping("/testTransaction")
     @ResponseBody
     public boolean testTransaction() {
