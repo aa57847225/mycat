@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.no7player.mapper.CompanyMapper">
+ 
+  <select id="findCompanyById" resultType="cn.no7player.model.Company" parameterType="int">
+    select
+      id,
+      name,
+      schema_name as schemaName
+    from
+      company
+    where
+      id = #{id}
+  </select>
+
+  <select id="addCompany" parameterType="cn.no7player.model.Company" >
+    INSERT into
+        company(name,schema_name)
+    VALUES
+        (#{name},#{schemaName})
+  </select>
+
+  <select id="updateCompany" parameterType="cn.no7player.model.Company" >
+    UPDATE
+      company
+    <trim prefix="set" suffixOverrides=",">
+      <if test="name!=null">
+          name=#{name},
+      </if>
+      <if test="schemaName!=null">
+        schema_name=#{schemaName},
+      </if>
+    </trim>
+    WHERE
+     id = #{id}
+  </select>
+
+  <select id="findAllCompany" resultType="cn.no7player.model.Company" >
+    SELECT
+      id,
+      name,
+      schema_name as schemaName
+    from
+      company;
+  </select>
+
+</mapper>

@@ -1,12 +1,20 @@
-package cn.no7player.Interceptor;
+package cn.no7player.interceptor;
 
 import org.apache.commons.lang.reflect.FieldUtils;
 
 import java.lang.reflect.Field;
 
-public class ReflectHelper {
+public final class ReflectHelper {
 
-	public static Object getFieldValue(Object obj , String fieldName ){  
+    private ReflectHelper(){}
+
+    /**
+     * 反射根据obj filename 获取 值
+     * @param obj
+     * @param fieldName
+     * @return
+     */
+    public static Object getFieldValue(Object obj , String fieldName ){
         
         if(obj == null){  
             return null ;  
@@ -20,8 +28,14 @@ public class ReflectHelper {
             e.printStackTrace();
         }
         return null ;  
-    }  
-      
+    }
+
+    /**
+     * 根据类 filename 获取属性
+     * @param targetClass
+     * @param fieldName
+     * @return
+     */
     public static Field getTargetField(Class<?> targetClass, String fieldName) {  
         Field field = null;  
   
@@ -42,13 +56,21 @@ public class ReflectHelper {
         }  
   
         return field;  
-    }  
-      
+    }
+
+    /**
+     * 设置属性值
+     * @param obj
+     * @param fieldName
+     * @param value
+     */
     public static void setFieldValue(Object obj , String fieldName , Object value ){  
-        if(null == obj){return;}  
+        if(null == obj){
+            return;
+        }
         Field targetField = getTargetField(obj.getClass(), fieldName);    
         try {
-             FieldUtils.writeField(targetField, obj, value) ;
+            FieldUtils.writeField(targetField, obj, value) ;
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }

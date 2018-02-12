@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.no7player.mapper.UsersMapper">
+ 
+  <select id="findUser" resultType="cn.no7player.model.Users" parameterType="int">
+    select * from users WHERE id = #{id}
+  </select>
+
+  <select id="findUserDetail" resultType="cn.no7player.model.UsersDetail" parameterType="int">
+    select
+      u.id as id,
+      u.name as name,
+      u.phone as phone,
+      u.companyId as companyId,
+      c.name as companyName,
+      c.schema_name as schemaName
+    from
+      users as u
+    left JOIN
+      company c
+    ON
+      u.companyId = c.id
+    WHERE
+      u.id = #{id}
+  </select>
+
+  <select id="addUser" parameterType="cn.no7player.model.Users">
+    INSERT into
+      users(name,phone,companyId)
+    VALUES
+      (#{name},#{phone},#{companyId})
+  </select>
+
+  <select id="updateUser" resultType="cn.no7player.model.Users">
+    update
+      users
+    SET
+      name = #{name},
+      phone = #{phone},
+      companyId = #{companyId}
+    WHERE
+      id = #{id}
+  </select>
+
+  <select id="findAll" resultType="cn.no7player.model.Users">
+    select * from users
+  </select>
+
+</mapper>

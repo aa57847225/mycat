@@ -1,6 +1,6 @@
 package cn.no7player;
 
-import cn.no7player.Interceptor.TenantInterceptor;
+import cn.no7player.interceptor.TenantInterceptor;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
@@ -26,15 +26,25 @@ import javax.sql.DataSource;
 public class Application {
     private static Logger logger = Logger.getLogger(Application.class);
 
+    /**
+     * mysql 数据源
+     * @return
+     */
     @Bean
     @ConfigurationProperties(prefix="spring.datasource")
     public DataSource dataSource() {
         return new org.apache.tomcat.jdbc.pool.DataSource();
     }
 
+    // mybatis 拦截器
     @Autowired
-    public TenantInterceptor tenantInterceptor;
+    private TenantInterceptor tenantInterceptor;
 
+    /**
+     *  mybatis 加载插件和配置文件
+     * @return
+     * @throws Exception
+     */
     @Bean
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
 
@@ -48,6 +58,10 @@ public class Application {
         return sqlSessionFactoryBean.getObject();
     }
 
+    /**
+     * 事务管理器
+     * @return
+     */
     @Bean
     public PlatformTransactionManager transactionManager() {
         return new DataSourceTransactionManager(dataSource());

@@ -1,9 +1,7 @@
 package cn.no7player.service;
 
 import cn.no7player.common.tenant.TenantContextHolder;
-import cn.no7player.mapper.UserMapper;
 import cn.no7player.mapper.UsersInfoMapper;
-import cn.no7player.model.User;
 import cn.no7player.model.UsersInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

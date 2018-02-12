@@ -1,6 +1,5 @@
 package cn.no7player.mapper;
 
-import cn.no7player.model.User;
 import cn.no7player.model.UsersInfo;
 
 /**
@@ -8,9 +7,14 @@ import cn.no7player.model.UsersInfo;
  */
 public interface UsersInfoMapper {
 
-    //查询用户
-    public UsersInfo findUsersInfo();
+    /**
+     * 查询用户
+     * @return
+     */
+    UsersInfo findUsersInfo();
 
-    //更新用户信息
-    public void updateUserInfo();
+    /**
+     * 更新用户信息
+     */
+    void updateUserInfo();
 }

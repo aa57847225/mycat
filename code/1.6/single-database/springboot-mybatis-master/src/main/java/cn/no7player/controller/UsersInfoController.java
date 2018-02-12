@@ -1,15 +1,10 @@
 package cn.no7player.controller;
 
-import cn.no7player.common.tenant.TenantContextHolder;
-import cn.no7player.model.User;
 import cn.no7player.model.UsersInfo;
-import cn.no7player.service.UserService;
 import cn.no7player.service.UsersInfoService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
