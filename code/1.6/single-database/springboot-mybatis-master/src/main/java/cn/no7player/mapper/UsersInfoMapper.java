@@ -3,7 +3,8 @@ package cn.no7player.mapper;
 import cn.no7player.model.UsersInfo;
 
 /**
- * Created by zl on 2015/8/27.
+ * Created by whl on
+ * 2018年2月23日14:01:40
  */
 public interface UsersInfoMapper {
 

@@ -6,7 +6,8 @@ import cn.no7player.model.UsersDetail;
 import java.util.List;
 
 /**
- * Created by zl on 2015/8/27.
+ * Created by whl on
+ * 2018年2月23日14:01:53.
  */
 public interface UsersMapper {
 

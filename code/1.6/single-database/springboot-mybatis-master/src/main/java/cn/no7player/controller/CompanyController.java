@@ -77,7 +77,7 @@ public class CompanyController {
      */
     @RequestMapping(value = "/findAll")
     @ResponseBody
-    public String updateCompany() {
+    public String findAll() {
         List<Company> companyList = companyService.findAllCompany();
         return JSON.toJSONString(companyList);
     }

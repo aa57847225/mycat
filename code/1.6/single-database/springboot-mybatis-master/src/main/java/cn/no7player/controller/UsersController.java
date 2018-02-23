@@ -40,6 +40,13 @@ public class UsersController {
 
     /**
      * 新增用户
+     *
+     {
+     "name":"张辉",
+     "phone":"13770875264",
+     "companyId":1
+     }
+     *
      * @param user
      * @return
      */

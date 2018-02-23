@@ -5,7 +5,8 @@ import cn.no7player.model.Company;
 import java.util.List;
 
 /**
- * Created by zl on 2015/8/27.
+ * Created by whl on
+ * 2018年2月23日14:01:23
  */
 public interface CompanyMapper {
 
